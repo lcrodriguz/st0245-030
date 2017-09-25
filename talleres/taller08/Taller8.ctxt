@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=stack
+comment0.target=java.util.Stack\ inversa(java.util.Stack)
+comment1.params=queue
+comment1.target=void\ cola(java.util.Queue)
+comment2.params=string
+comment2.target=int\ polaca(java.lang.String)
+numComments=3
