@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Lab
+comment1.params=list
+comment1.target=int\ multiply(java.util.List)
+comment1.text=\r\n\ Returns\ the\ product\ of\ the\ numbers\ in\ the\ list.\ \r\n\ @param\ list\ -\ List\ of\ integers.\r\n\ @return\ An\ integer.\r\n
+comment2.params=list\ data
+comment2.target=void\ smartInsert(java.util.List,\ int)
+comment3.params=list
+comment3.target=int\ pivote(java.util.List)
+comment4.params=list
+comment4.target=int[]\ suma(java.util.List)
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+comment5.text=\r\n\ Tests\ the\ methods.\r\n\ @param\ args\r\n
+numComments=6

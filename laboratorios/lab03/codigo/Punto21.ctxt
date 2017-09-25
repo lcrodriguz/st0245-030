@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Punto21
+comment1.params=
+comment1.target=void\ cambiar()
+comment2.params=nueva
+comment2.target=java.lang.String\ aString(java.lang.String)
+numComments=3

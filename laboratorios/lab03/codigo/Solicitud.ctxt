@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Solicitud
+comment1.params=
+comment1.target=Solicitud()
+comment2.params=index
+comment2.target=Node\ getNode(int)
+comment3.params=index
+comment3.target=void\ get(int)
+comment4.params=
+comment4.target=int\ size()
+comment5.params=dato\ caract
+comment5.target=void\ insert(int,\ java.lang.String)
+comment6.params=index
+comment6.target=void\ remove(int)
+numComments=7
