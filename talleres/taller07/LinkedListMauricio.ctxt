@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=LinkedListMauricio
+comment1.params=
+comment1.target=LinkedListMauricio()
+comment2.params=index
+comment2.target=Node\ getNode(int)
+comment2.text=\r\n\ Returns\ the\ node\ at\ the\ specified\ position\ in\ this\ list.\r\n\ @param\ index\ -\ index\ of\ the\ node\ to\ return\r\n\ @return\ the\ node\ at\ the\ specified\ position\ in\ this\ list\r\n\ @throws\ IndexOutOfBoundsException\r\n
+comment3.params=index
+comment3.target=int\ get(int)
+comment3.text=\r\n\ Returns\ the\ element\ at\ the\ specified\ position\ in\ this\ list.\r\n\ @param\ index\ -\ index\ of\ the\ element\ to\ return\r\n\ @return\ the\ element\ at\ the\ specified\ position\ in\ this\ list\r\n
+comment4.params=
+comment4.target=int\ size()
+comment5.params=data\ index
+comment5.target=void\ insert(int,\ int)
+comment6.params=index
+comment6.target=void\ remove(int)
+comment7.params=data
+comment7.target=boolean\ contains(int)
+numComments=8

@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=LinkedListMauricioTest
+comment1.params=
+comment1.target=void\ testInsert()
+comment2.params=
+comment2.target=void\ testRemove()
+comment3.params=
+comment3.target=void\ testContains()
+numComments=4
