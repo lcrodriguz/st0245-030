@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=Taller9
+comment1.params=empresas\ key\ value
+comment1.target=void\ agregar(java.util.Hashtable,\ java.lang.String,\ java.lang.String)
+comment2.params=empresas\ key
+comment2.target=void\ buscar(java.util.Hashtable,\ java.lang.String)
+comment3.params=empresas\ value
+comment3.target=boolean\ contienekey(java.util.Hashtable,\ java.lang.String)
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

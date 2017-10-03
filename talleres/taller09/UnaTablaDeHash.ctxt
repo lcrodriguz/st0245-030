@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=UnaTablaDeHash
+comment1.params=
+comment1.target=UnaTablaDeHash()
+comment2.params=k
+comment2.target=int\ funcionHash(java.lang.String)
+comment3.params=k
+comment3.target=int\ get(java.lang.String)
+comment4.params=k\ v
+comment4.target=void\ put(java.lang.String,\ int)
+numComments=5
