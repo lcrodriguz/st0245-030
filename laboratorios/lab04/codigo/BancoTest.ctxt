@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=BancoTest
+comment0.text=\r\n\ The\ test\ class\ BancoTest.\r\n\r\n\ @author\ \ (your\ name)\r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=
+comment1.target=BancoTest()
+comment1.text=\r\n\ Default\ constructor\ for\ test\ class\ BancoTest\r\n
+comment2.params=
+comment2.target=void\ TestSimular()
+numComments=3

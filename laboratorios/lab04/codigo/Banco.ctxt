@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.target=Banco
+comment0.text=en\ este\ programa\ se\ ha\ identificado\ cada\ factor\ de\ la\ siguente\ manera\:\r\n\ los\ cajeros\ con\ numeros\ (int)\r\n\ las\ filas\ de\ los\ clientes\ como\ colas\ (queue)\r\n\ y\ las\ filas\ en\ general\ como\ otra\ cola,\ la\ cual\ se\ ira\ desgastando\ una\ por\ una\ (queue)\r\n
+comment1.params=cola
+comment1.target=boolean\ vacio(java.util.Queue)
+comment2.params=fila1\ fila2\ fila3\ fila4
+comment2.target=void\ simular(java.util.Queue,\ java.util.Queue,\ java.util.Queue,\ java.util.Queue)
+numComments=3
