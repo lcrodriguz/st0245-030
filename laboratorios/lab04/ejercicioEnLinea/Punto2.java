@@ -9,7 +9,7 @@ public class Punto2
     //Fecha: Octubre 2017
     //Disponible en: https://github.com/damesaa201710054010/ST0245-033.git
 
-    private LinkedList<Stack> laPila = new LinkedList<>();
+    private ArrayList<Stack> laPila = new ArrayList<>();
     private int tam;
 
     public Punto2(int n) {
@@ -51,11 +51,11 @@ public class Punto2
     }
 
     private void moveOnto(int a, int b) {
-        if (a != b) {
-            for (int i = 0; i < tam; i++) {
-                boolean loctA = laPila.get(i).contains(a);
-                boolean loctB = laPila.get(i).contains(b);
-                if (loctA != loctB) {
+        if (a != b) { 
+            for (int i = 0; i < tam; i++) { 
+                boolean loctA = laPila.get(i).contains(a); 
+                boolean loctB = laPila.get(i).contains(b); 
+                if (loctA != loctB) { 
                     if (loctB) {
                         int pX = (int) laPila.get(i).pop();
                         while (pX != b) {
