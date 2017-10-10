@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=BinaryTree
+comment1.params=
+comment1.target=BinaryTree()
+comment10.params=n
+comment10.target=boolean\ esta(int)
+comment11.params=n
+comment11.target=void\ delete(int)
+comment12.params=nodo\ n
+comment12.target=void\ delete(Node,\ int)
+comment2.params=i\ j
+comment2.target=int\ max2(int,\ int)
+comment3.params=node
+comment3.target=int\ maxheightAUX(Node)
+comment4.params=
+comment4.target=int\ maxheight()
+comment5.params=node
+comment5.target=void\ recursivePrintAUX(Node)
+comment6.params=
+comment6.target=void\ recursivePrint()
+comment7.params=nodo\ n
+comment7.target=boolean\ searchAux(Node,\ int)
+comment8.params=n
+comment8.target=boolean\ search(int)
+comment9.params=n
+comment9.target=void\ insertar(int)
+numComments=13
