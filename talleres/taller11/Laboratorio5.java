@@ -26,7 +26,17 @@ public class Laboratorio5 {
     
         //Crea el árbol familiar
         BinaryTree tree = new BinaryTree();
+        tree.insertar(0);
+        tree.insertar(-1);
+        tree.insertar(1);
+        tree.insertar(5);
+        tree.insertar(7);
+        tree.insertar(4);
+        tree.insertar(9);
+        tree.insertar(2);
+        dibujarArbol(tree);
         
+        tree.borrar(5);
         
         //Imprime el árbol familiar
         tree.recursivePrint();

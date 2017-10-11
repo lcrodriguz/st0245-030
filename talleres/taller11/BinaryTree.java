@@ -42,15 +42,15 @@ public class BinaryTree {
         recursivePrintAUX(root);
     }
 
-    private boolean searchAux(Node nodo, int n){
+    private boolean searchAux(Node Node, int n){
 
-        if(nodo == null)return false;
-        if(nodo.data== n)return true;
-        if(nodo.data < n){
-            return searchAux(nodo.right, n);
+        if(Node == null)return false;
+        if(Node.data== n)return true;
+        if(Node.data < n){
+            return searchAux(Node.right, n);
         }
         else{
-            return searchAux(nodo.left, n);
+            return searchAux(Node.left, n);
         }
     }
 
@@ -105,46 +105,68 @@ public class BinaryTree {
         return false;
     }
 
-        public void delete(int n)
-    {
-        delete(root,n);
+    public void borrar(int n){ 
+        root = borrar(root, n); 
+    }
+
+    private Node borrar(Node nodo,int n){
+        if(esta(n)){ 
+            System.out.println("si");
+            if(nodo.data == n){
+                if(nodo.right == null && nodo.left == null){  
+                    System.out.println("si1");
+                    nodo = null;                    
+                    return nodo;             
+                }
+
+                if(nodo.right == null && nodo.left != null){  
+                    nodo = nodo.left;
+                    return nodo;    
+                }
+
+                if(nodo.left == null && nodo.right != null){ 
+                    nodo = nodo.right;
+                    return nodo;
+                }
+
+                nodo.data = encontrarMaximo(nodo.left);
+                nodo = ajuste(nodo, nodo.left, nodo);
+                return nodo;
+            }
+        }
+
+        if(n > nodo.data){ 
+            nodo.right = borrar(nodo.right, n); 
+            return nodo; 
+        }
+
+        nodo.left = borrar(nodo.left, n);
+        return nodo;
+    }
+
+    private int encontrarMaximo(Node nodo){
+        if(nodo.right == null){ 
+            return nodo.data; 
+        }
+        return encontrarMaximo(nodo.right);    
     }
     
-    private void delete(Node nodo,int n)
-    {
+    private Node ajuste(Node padre, Node hijo1 , Node hijo2){
+        if(hijo1.right == null){
+            if(padre == hijo2){
+                padre.left = hijo1.left; 
+                return padre;
+            } 
+            padre.right = hijo1.left; 
+            return padre;
+        }        
+ 
+        hijo1 = ajuste(hijo1, hijo1.right, hijo2);
         
-        if(nodo == null)
-            return;
-        if(nodo.data == n){
-            System.out.println("Si1");
-            if(nodo.left == null && nodo.right == null){
-                System.out.println("Si2");
-                nodo = null;
-                return;
-            }
-            if(nodo.left != null && nodo.right == null){
-                System.out.println("Si3");
-                nodo = nodo.left;
-                nodo.left = null;
-                return;
-            }
-            if(nodo.right != null && nodo.left == null){
-                System.out.println("Si4");
-                nodo = nodo.right;
-                nodo.right = null;
-                return;
-            }
-            if(nodo.right != null && nodo.left != null){
-                
-            }
+        if(padre == hijo2){
+            padre.left = hijo1;
         }
-        if(nodo.data < n){
-            System.out.println("Si5");
-            delete(nodo.right, n);
-        }
-        if(nodo.data > n){
-            System.out.println("Si6");
-            delete(nodo.left, n);
-        }
+        padre.right = hijo1;
+        return padre;
     }
 }
