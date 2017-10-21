@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=BinaryTree
+comment1.params=
+comment1.target=BinaryTree()
+comment10.params=node\ n
+comment10.target=Node\ h(Node,\ java.lang.String)
+comment11.params=n
+comment11.target=Node\ buscarAbuAux(java.lang.String)
+comment12.params=nodo\ n
+comment12.target=Node\ buscarAbu(Node,\ java.lang.String)
+comment2.params=i\ j
+comment2.target=int\ max2(int,\ int)
+comment3.params=node
+comment3.target=int\ maxheightAUX(Node)
+comment4.params=
+comment4.target=int\ maxheight()
+comment5.params=node
+comment5.target=int\ alturaAUX(Node)
+comment6.params=
+comment6.target=void\ altura()
+comment7.params=n
+comment7.target=boolean\ buscara(java.lang.String)
+comment8.params=nodo\ n
+comment8.target=boolean\ buscara(Node,\ java.lang.String)
+comment9.params=name
+comment9.target=void\ getGrandMothersName(java.lang.String)
+numComments=13
