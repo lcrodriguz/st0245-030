@@ -70,7 +70,7 @@ public class Laboratorio5 {
         System.out.println(arbolGenealogico.buscara("jesus"));
         System.out.println(arbolGenealogico.buscara("Manuela"));
         
-        //arbolGenealogico.getGrandMothersName("Wilfer");
+        arbolGenealogico.getGrandMothersName("Manuela");
         
     }
 }

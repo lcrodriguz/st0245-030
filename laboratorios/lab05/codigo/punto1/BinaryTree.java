@@ -55,48 +55,32 @@ public class BinaryTree {
 
     }
     
-    public void getGrandMothersName(String name){
+        public void getGrandMothersName(String name){
         Node nodo;
         nodo= buscarAbuAux(name);
         if(nodo!=null){
         if(nodo.left!=null){
         if(nodo.left.left!=null){
-        System.out.println( nodo.left.left.data);
-         return;}}}
+        System.out.println("Nombre: " + nodo.left.left.data);
+    return;}}}
         
-         System.out.println( "yuca no tiene abuela");
+         System.out.println( "En el árbol no está su abuela");
     }
-    
-    public Node h(Node node,String n){
-        Node temp= null;
-      if(node!= null && node.data.equals(n))temp= node;
-      if (node != null)
+    Node nodo;
+    public void buscarAbue(Node node,String n){
+    if (node != null)
         {
-          String j = node.data;
-          h(node.left,n);
-          h(node.right,n);
-        }
-         String q = node.data;
-        return temp;
-        }
-
-        public Node buscarAbuAux(String n){
-        return h(root, n);
-    }
-    
-    private Node buscarAbu(Node nodo, String n){
-        boolean temp=false; 
-        if(nodo == null)return null;
-        else {
-            if (nodo.data != n)
-            {
-              if(nodo.left!=null) nodo = buscarAbu(nodo.left, n);
-               if(nodo.right!=null)nodo = buscarAbu(nodo.right, n);
-               String j=nodo.data;
-                return nodo;
-            }else{
-                return nodo;
+            buscarAbue(node.left,n);
+            buscarAbue(node.right,n);
+            if(node.data.equals(n)){
+               nodo=node;
+                return ;
+             
             }
-        }    
+        }
+    }
+     public Node buscarAbuAux(String n){
+        buscarAbue(root, n);
+        return nodo;
     }
 }
