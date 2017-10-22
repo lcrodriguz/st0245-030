@@ -1,52 +1,76 @@
+
 public class Laboratorio5 {
 
+   public static void dibujarArbol(BinaryTree a)
+   {
+       System.out.println("/* arbolito para http://www.webgraphviz.com/ */"); 
+       System.out.println("digraph arbolito {");
+       System.out.println("size=\"6,6\";");
+       System.out.println("node [color=aquamarine, style=filled];");
+       dibujarArbolAux(a.root);
+       System.out.println("}");
+   }
+   
+   public static void dibujarArbolAux(Node Node)
+   {
+      if (Node != null)
+        
+         for(Node n: new Node[] {Node.left, Node.right} ){
+            if (n != null)
+               System.out.println("\"" + Node.data + "\" -> \"" + n.data + "\";");
+            dibujarArbolAux(n);
+        }
+   }
+
+    
     public static void main(String[] args) {
+    
         //Crea el árbol familiar
         BinaryTree arbolGenealogico = new BinaryTree();
 
-        Node raiz = new Node("Laura");
+        Node raiz = new Node("Manuela");
         arbolGenealogico.root = raiz;
-        Node mama = new Node("Adriana");
-        raiz.left = mama;
-        Node papa = new Node("Hernán");
-        raiz.right = papa;
-        Node abam = new Node("Yolanda");
-        mama.left = abam;
-        Node abom = new Node("Fabio");
-        mama.right = abom;
-        Node babam = new Node("Carlina");
-        abam.left = babam;
-        Node babom = new Node("Bernabé");
-        abam.right = babom;
-        Node babamp =new Node("María");
-        abom.left=babamp;
-        Node babomp =new Node("Pedro");
-        abom.right=babomp;
-        Node abap=new Node("Benigna");
-        papa.left=abap;
-        Node abop=new Node("Bautista");
-        papa.right=abop;
-        Node babap = new Node("Mercedes");
-        abap.left = babap;
-        Node babop = new Node("Francisco");
-        abap.right = babop;
-        Node babapp =new Node("Florentina");
-        abop.left=babapp;
-        Node babopp =new Node("Eleazar");
-        abop.right=babopp;
-
+        Node hijo1 = new Node("Yesica");
+        raiz.left = hijo1;
+        Node hijo2 = new Node("Wilfer");
+        raiz.right = hijo2;
+        Node nieto1 = new Node("Blanca");
+        hijo1.left = nieto1;
+        Node nieto2 = new Node("Arturo");
+        hijo1.right = nieto2;
+        Node bisnieto1 = new Node(" ");
+        nieto1.left = bisnieto1;
+        Node bisnieto2 = new Node(" ");
+        nieto1.right = bisnieto2;
+        Node bisnieto12 = new Node(" ");
+        nieto2.left = bisnieto12;
+        Node bisnieto22 = new Node(" ");
+        nieto2.right = bisnieto22;
+        Node nieto12 = new Node("Rosmira");
+        hijo2.left = nieto12;
+        Node nieto22 = new Node("Javier");
+        hijo2.right = nieto22;
+        Node bisnietoright = new Node("Alicia");
+        nieto12.left = bisnietoright;
+        Node bisnietoright2 = new Node(" ");
+        nieto12.right = bisnietoright2;
+        Node bisnietorightp = new Node(" ");
+        nieto22.left = bisnietorightp;
+        Node bisnietorightp2 = new Node("");
+        nieto22.right = bisnietorightp2;
+                  
         //Altura
         System.out.println(arbolGenealogico.maxheight());
-        //Código para el árbol familiar
-        BinaryTree.dibujarArbol(arbolGenealogico);
-        //buscar
-        System.out.println(arbolGenealogico.buscara("Yolanda"));
-        System.out.println(arbolGenealogico.buscara("Eleazar"));
-        System.out.println(arbolGenealogico.buscara("Juan"));
-        //Abuela materna
-        arbolGenealogico.getGrandMothersName("Hernán");
-        arbolGenealogico.getGrandMothersName("Laura");
-        arbolGenealogico.getGrandMothersName("Bautista");
-        arbolGenealogico.getGrandMothersName("Adriana");
+        
+       //Dibuja el árbol familiar
+        dibujarArbol(arbolGenealogico);
+        
+        //buscar en el arbol familiar
+        System.out.println(arbolGenealogico.buscara("Alicia"));
+        System.out.println(arbolGenealogico.buscara("jesus"));
+        System.out.println(arbolGenealogico.buscara("Manuela"));
+        
+        arbolGenealogico.getGrandMothersName("Manuela");
+        
     }
 }

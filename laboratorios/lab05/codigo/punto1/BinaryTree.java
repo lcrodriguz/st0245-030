@@ -1,3 +1,4 @@
+
 public class BinaryTree {
     public Node root;
 
@@ -5,40 +6,21 @@ public class BinaryTree {
         root = null;
     }
 
-    private int max2(int i, int j)
-    {
+    private int max2(int i, int j){
         if (i > j)
             return i;
         return j;
     }
 
-    private int maxheightAUX(Node node)
-    {
+    private int maxheightAUX(Node node){
         if (node == null)
             return 0;
         else 
             return max2(maxheightAUX(node.left), maxheightAUX(node.right))+1;
     }
 
-    public int maxheight()
-    {
+    public int maxheight(){
         return maxheightAUX(root);
-    }
-
-    private void recursivePrintAUX(Node node)
-    {
-        if (node != null)
-        {
-            recursivePrintAUX(node.left);
-            recursivePrintAUX(node.right);
-            System.out.println(node.data);
-        }
-
-    }
-
-    public void recursivePrint()
-    {
-        recursivePrintAUX(root);
     }
 
     public int alturaAUX(Node node) {
@@ -73,7 +55,7 @@ public class BinaryTree {
 
     }
     
-    public void getGrandMothersName(String name){
+        public void getGrandMothersName(String name){
         Node nodo;
         nodo= buscarAbuAux(name);
         if(nodo!=null){
@@ -101,26 +83,4 @@ public class BinaryTree {
         buscarAbue(root, n);
         return nodo;
     }
-    
-       public static void dibujarArbol(BinaryTree a)
-   {
-       System.out.println("/* arbolito para http://www.webgraphviz.com/ */"); 
-       System.out.println("digraph arbolito {");
-       System.out.println("size=\"6,6\";");
-       System.out.println("node [color=aquamarine, style=filled];");
-       dibujarArbolAux(a.root);
-       System.out.println("}");
-   }
-   
-   public static void dibujarArbolAux(Node node)
-   {
-      if (node != null)
-        
-         for(Node n: new Node[] {node.left, node.right} ){
-            if (n != null)
-               System.out.println("\"" + node.data + "\" -> \"" + n.data + "\";");
-            dibujarArbolAux(n);
-        }
-   }
-
 }
