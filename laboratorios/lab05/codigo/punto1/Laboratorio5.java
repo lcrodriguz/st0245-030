@@ -96,7 +96,7 @@ public class Laboratorio5 {
         //Altura
         System.out.println(arGen.maxheight());
         //Código para el árbol familiar
-        BinaryTree.dibujarArbol(arGen);
+        dibujarArbol(arGen);
         //buscar
         System.out.println(arGen.buscara("Yolanda"));
         System.out.println(arGen.buscara("Eleazar"));
