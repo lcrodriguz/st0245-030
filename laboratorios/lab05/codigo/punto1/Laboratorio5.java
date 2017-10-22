@@ -26,38 +26,23 @@ public class Laboratorio5 {
     public static void main(String[] args) {
     
         //Crea el árbol familiar
+        System.out.println("Arbol de Luis");
         BinaryTree arbolGenealogico = new BinaryTree();
 
-        Node raiz = new Node("Manuela");
+        Node raiz = new Node("Luis");
         arbolGenealogico.root = raiz;
-        Node hijo1 = new Node("Yesica");
+        Node hijo1 = new Node("Luz");
         raiz.left = hijo1;
-        Node hijo2 = new Node("Wilfer");
+        Node hijo2 = new Node("Carlos");
         raiz.right = hijo2;
-        Node nieto1 = new Node("Blanca");
+        Node nieto1 = new Node("Margarita");
         hijo1.left = nieto1;
-        Node nieto2 = new Node("Arturo");
+        Node nieto2 = new Node("Adelmo");
         hijo1.right = nieto2;
-        Node bisnieto1 = new Node(" ");
-        nieto1.left = bisnieto1;
-        Node bisnieto2 = new Node(" ");
-        nieto1.right = bisnieto2;
-        Node bisnieto12 = new Node(" ");
-        nieto2.left = bisnieto12;
-        Node bisnieto22 = new Node(" ");
-        nieto2.right = bisnieto22;
-        Node nieto12 = new Node("Rosmira");
-        hijo2.left = nieto12;
-        Node nieto22 = new Node("Javier");
-        hijo2.right = nieto22;
-        Node bisnietoright = new Node("Alicia");
-        nieto12.left = bisnietoright;
-        Node bisnietoright2 = new Node(" ");
-        nieto12.right = bisnietoright2;
-        Node bisnietorightp = new Node(" ");
-        nieto22.left = bisnietorightp;
-        Node bisnietorightp2 = new Node("");
-        nieto22.right = bisnietorightp2;
+        Node nieto3 = new Node("Maria");
+        hijo2.left = nieto3;
+        Node nieto4 = new Node("Habraham");
+        hijo2.right = nieto4;
                   
         //Altura
         System.out.println(arbolGenealogico.maxheight());
@@ -66,11 +51,12 @@ public class Laboratorio5 {
         dibujarArbol(arbolGenealogico);
         
         //buscar en el arbol familiar
-        System.out.println(arbolGenealogico.buscara("Alicia"));
-        System.out.println(arbolGenealogico.buscara("jesus"));
-        System.out.println(arbolGenealogico.buscara("Manuela"));
+        System.out.println(arbolGenealogico.buscara("Carlos"));
+        System.out.println(arbolGenealogico.buscara("jose"));
+        System.out.println(arbolGenealogico.buscara("Adelmo"));
         
-        arbolGenealogico.getGrandMothersName("Manuela");
+        arbolGenealogico.getGrandMothersName("Luis");
         
+        System.out.println("Arbol de Laura");
     }
 }
