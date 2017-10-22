@@ -58,5 +58,53 @@ public class Laboratorio5 {
         arbolGenealogico.getGrandMothersName("Luis");
         
         System.out.println("Arbol de Laura");
+        System.out.println();
+       
+       BinaryTree arGen = new BinaryTree();
+
+        Node raiz2 = new Node("Laura");
+        arGen.root = raiz2;
+        Node mama = new Node("Adriana");
+        raiz2.left = mama;
+        Node papa = new Node("Hernán");
+        raiz2.right = papa;
+        Node abam = new Node("Yolanda");
+        mama.left = abam;
+        Node abom = new Node("Fabio");
+        mama.right = abom;
+        Node babam = new Node("Carlina");
+        abam.left = babam;
+        Node babom = new Node("Bernabé");
+        abam.right = babom;
+        Node babamp =new Node("María");
+        abom.left=babamp;
+        Node babomp =new Node("Pedro");
+        abom.right=babomp;
+        Node abap=new Node("Benigna");
+        papa.left=abap;
+        Node abop=new Node("Bautista");
+        papa.right=abop;
+        Node babap = new Node("Mercedes");
+        abap.left = babap;
+        Node babop = new Node("Francisco");
+        abap.right = babop;
+        Node babapp =new Node("Florentina");
+        abop.left=babapp;
+        Node babopp =new Node("Eleazar");
+        abop.right=babopp;
+
+        //Altura
+        System.out.println(arGen.maxheight());
+        //Código para el árbol familiar
+        BinaryTree.dibujarArbol(arGen);
+        //buscar
+        System.out.println(arGen.buscara("Yolanda"));
+        System.out.println(arGen.buscara("Eleazar"));
+        System.out.println(arGen.buscara("Juan"));
+        //Abuela materna
+        arGen.getGrandMothersName("Hernán");
+        arGen.getGrandMothersName("Laura");
+        arGen.getGrandMothersName("Bautista");
+        arGen.getGrandMothersName("Adriana");
     }
 }
