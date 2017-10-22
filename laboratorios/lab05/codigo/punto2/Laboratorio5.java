@@ -32,7 +32,7 @@ public class Laboratorio5 {
         //ingreso datos
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         System.out.println("Por favor ingrese los datos para crear el arbol");
-        System.out.println("Si ya finalisaste, por favor escriba listo");
+        System.out.println("Si ya finalizaste, por favor escriba listo");
         
         while(entrada!="listo"){     
          entrada = br.readLine();
