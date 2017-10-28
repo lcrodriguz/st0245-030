@@ -23,11 +23,12 @@ public class Directorio{
         String siglinea;
         String tmp="";
 
-        String rara2 = Pattern.quote("└");
+        String llave = Pattern.quote("[");
         String rara = Pattern.quote("├");
 
         String [] spline = null;
         String [] spsline = null;
+
         try{ 
 
             archivo = new File ("archivo.txt");
@@ -39,43 +40,46 @@ public class Directorio{
             siglinea=br.readLine();
 
             while(linea!=null || siglinea!=null){
+                
+                //Dividir el String para obtener lo que consideraremos como la profundidad o nivel del documento
 
-                if(linea.contains("├")){
-                    spline = linea.split(rara);
+                if(linea.contains("[")){
+                    spline = linea.split(llave);
                 }
-                if(linea.contains("└")){
-                    spline = linea.split(rara2);
-                }
-                if(siglinea.contains("├")){
-                    spsline = siglinea.split(rara);
-                }
-                if(siglinea.contains("└")){
-                    spsline = siglinea.split(rara2);
+
+                if(siglinea.contains("[")){
+                    spsline = siglinea.split(llave);
                 }
 
                 int espline = spline[0].length();
                 int espsline = spsline[0].length();
-
-                int ecuacion = 2 * espline;
                 
-                if(ecuacion == espsline){
-                    
-                    Nombres.put(spsline[spsline.length-1] , spline[spline.length-1]);
-                    
+                //Inicio de las condiciones para realizar la inserción en el arbol
+
+                if(espline < espsline){
+                    if(espline + 4 == espsline){
+                        Nombres.put(spsline[spsline.length-1] , spline[spline.length-1]);
+                    }else{
+                        linea=tmp;
+                        //linea=siglinea;
+                        continue;
+                    }
+                }
+                
+                if(espline == espsline){                    
                     linea=siglinea;
                     siglinea=br.readLine();
                     continue;
                 }
                 
-                if(espline > espsline){
-                    Nombres.put(spsline[spsline.length-1] , spline[spline.length-1]);
+                if(espline > espsline){                    
+                    linea=siglinea;
+                    siglinea=br.readLine();
+                    continue;
                 }
-                
-                if(espline < espsline){
-                    Nombres.put(spsline[spsline.length-1] , spline[spline.length-1]);
-                }
+
                 //Nombres.put(linea,siglinea);  
-                tmp=linea;
+                tmp=siglinea;
                 siglinea=br.readLine();
             }
         }   
