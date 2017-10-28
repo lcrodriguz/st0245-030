@@ -4,27 +4,23 @@ import java.util.regex.Pattern;
 
 public class Directorio{
 
-    String direccion;
-    TreeMap<String,String> Nombres = new TreeMap<String,String>();
-    TreeMap<String,String>  Tamaños= new TreeMap<String,String>();
-    TreeMap<String,String> Dueños = new TreeMap<String,String>();
+    static String direccion;
+    static TreeMap<String,String> Nombres = new TreeMap<String,String>();
+    static TreeMap<String,String>  Tamaños= new TreeMap<String,String>();
+    static TreeMap<String,String> Dueños = new TreeMap<String,String>();
 
-    File archivo=null;
-    FileReader fr=null;
-    BufferedReader br=null;
+    static File archivo=null;
+    static FileReader fr=null;
+    static BufferedReader br=null;
 
-    public Directorio(){
-
-    }
-
-    public void leer(){
-
+    public static void leer(){
+        String raiz;
         String linea;
         String siglinea;
         String tmp="";
 
         String llave = Pattern.quote("[");
-        String rara = Pattern.quote("├");
+        String vacio = Pattern.quote("");
 
         String [] spline = null;
         String [] spsline = null;
@@ -36,11 +32,16 @@ public class Directorio{
             br = new BufferedReader(fr);
 
             linea=br.readLine();
+            raiz=linea;
+            raiz=raiz.substring(1, raiz.length()-1);
             linea=br.readLine();
             siglinea=br.readLine();
 
-            while(linea!=null || siglinea!=null){
-                
+            int espline;
+            int espsline;
+
+            while((linea != vacio) && (siglinea != vacio)){
+
                 //Dividir el String para obtener lo que consideraremos como la profundidad o nivel del documento
 
                 if(linea.contains("[")){
@@ -51,9 +52,9 @@ public class Directorio{
                     spsline = siglinea.split(llave);
                 }
 
-                int espline = spline[0].length();
-                int espsline = spsline[0].length();
-                
+                espline = spline[0].length();
+                espsline = spsline[0].length();
+
                 //Inicio de las condiciones para realizar la inserción en el arbol
 
                 if(espline < espsline){
@@ -65,17 +66,25 @@ public class Directorio{
                         continue;
                     }
                 }
-                
+
                 if(espline == espsline){                    
                     linea=siglinea;
                     siglinea=br.readLine();
                     continue;
                 }
-                
+
                 if(espline > espsline){                    
                     linea=siglinea;
                     siglinea=br.readLine();
                     continue;
+                }
+
+                if(espline == 4){
+                    Nombres.put(spline[spline.length-1] , raiz);
+                }
+
+                if(espsline == 4){
+                    Nombres.put(spsline[spsline.length-1] , raiz);
                 }
 
                 //Nombres.put(linea,siglinea);  
@@ -97,15 +106,10 @@ public class Directorio{
         }
     }
 
-    public void recorrer(){
-
-    }
-
-    public void buscar(){
+    public static void buscar(){
         System.out.println(Nombres.get("asus-keyboard-backlight-down"));
         direccion="proyecto";
 
         System.out.println(Nombres.tailMap(direccion));
     }
-
 }
