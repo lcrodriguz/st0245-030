@@ -4,7 +4,6 @@ import java.util.regex.Pattern;
 
 public class Directorio{
 
-    static String direccion;
     static TreeMap<String,String> Nombres = new TreeMap<String,String>();
     static TreeMap<String,String>  Tamaños= new TreeMap<String,String>();
     static TreeMap<String,String> Dueños = new TreeMap<String,String>();
@@ -13,7 +12,8 @@ public class Directorio{
     static FileReader fr=null;
     static BufferedReader br=null;
 
-    public static void leer(){
+    public static void leer(String entrada){
+        String info;
         String raiz;
         String linea;
         String siglinea;
@@ -27,7 +27,7 @@ public class Directorio{
 
         try{ 
 
-            archivo = new File ("archivo.txt");
+            archivo = new File (entrada);
             fr = new FileReader (archivo);
             br = new BufferedReader(fr);
 
@@ -40,7 +40,10 @@ public class Directorio{
             int espline;
             int espsline;
 
-            while((linea != vacio) && (siglinea != vacio)){
+            while((linea != vacio) || (siglinea != vacio)){
+
+                spsline = null;
+                spline = null;
 
                 //Dividir el String para obtener lo que consideraremos como la profundidad o nivel del documento
 
@@ -53,8 +56,11 @@ public class Directorio{
                 }
 
                 espline = spline[0].length();
-                espsline = spsline[0].length();
-
+                if(siglinea.equals("")){
+                    espsline =0;   
+                }else{
+                    espsline = spsline[0].length();
+                }
                 //Inicio de las condiciones para realizar la inserción en el arbol
 
                 if(espline < espsline){
@@ -67,18 +73,6 @@ public class Directorio{
                     }
                 }
 
-                if(espline == espsline){                    
-                    linea=siglinea;
-                    siglinea=br.readLine();
-                    continue;
-                }
-
-                if(espline > espsline){                    
-                    linea=siglinea;
-                    siglinea=br.readLine();
-                    continue;
-                }
-
                 if(espline == 4){
                     Nombres.put(spline[spline.length-1] , raiz);
                 }
@@ -87,12 +81,31 @@ public class Directorio{
                     Nombres.put(spsline[spsline.length-1] , raiz);
                 }
 
+                if(espline == espsline){                    
+                    linea=siglinea;
+                    siglinea=br.readLine();
+                    continue;
+                }
+
+                if(siglinea.equals("") ){
+                    siglinea=br.readLine();
+                    info=siglinea;
+                    break;
+                }
+                
+                if(espline > espsline){                    
+                    linea=siglinea;
+                    siglinea=br.readLine();
+                    continue;
+                }
+
+
                 //Nombres.put(linea,siglinea);  
                 tmp=siglinea;
                 siglinea=br.readLine();
-            }
-        }   
-        catch(Exception e){
+
+            } 
+        }catch(Exception e){
             e.printStackTrace();
         }finally{
 
@@ -106,10 +119,22 @@ public class Directorio{
         }
     }
 
-    public static void buscar(){
-        System.out.println(Nombres.get("asus-keyboard-backlight-down"));
-        direccion="proyecto";
+    public static void buscar(String entrada){
+        
+        if(Nombres.containsKey(entrada)){
+                System.out.println(Nombres.floorEntry(entrada));
+        }else{
+            System.out.println("No se encontró ningún archivo relacionado a este nombre");
+        }
+        
+        //System.out.println(Nombres.tailMap(direccion));
+    }
 
-        System.out.println(Nombres.tailMap(direccion));
+    public static void main(String []ar) throws IOException{
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.println("Por favor ingrese el nombre del archivo a buscar");
+        String entrada = br.readLine();
+        leer("archivo.txt");
+        buscar(entrada);
     }
 }
