@@ -62,6 +62,8 @@ public class directorio2{
                     espsline = spsline[0].length();
                 }
                 //Inicio de las condiciones para realizar la inserción en el arbol
+                String linenosp[]=spline[1].split(" ");
+                String slinenosp[]=spsline[1].split(" ");
 
                 if(espline < espsline){
                     if(espline + 4 == espsline){
@@ -71,6 +73,9 @@ public class directorio2{
                             Nombres.put(spsline[spsline.length-1].substring(20) , spline[spline.length-1].substring(20));
                             Tamano.put(spline[spline.length-1].substring(20) , spline[spline.length-1].substring(13,17));
                             Tamano.put(spsline[spsline.length-1].substring(20) , spsline[spsline.length-1].substring(13,17));
+                            //agrega dueño como valor
+                            Dueños.put(spline[spline.length-1].substring(20), linenosp[0]);
+                            Dueños.put(spsline[spsline.length-1].substring(20), slinenosp[0]);
                         }
                     }else{
                         linea=tmp;
@@ -86,6 +91,9 @@ public class directorio2{
                         Nombres.put(spsline[spsline.length-1].substring(20) , spline[spline.length-1].substring(20));
                         Tamano.put(spline[spline.length-1].substring(20) , spline[spline.length-1].substring(13,17));
                         Tamano.put(spsline[spsline.length-1].substring(20) , spsline[spsline.length-1].substring(13,17));
+                        //agrega dueño como valor
+                        Dueños.put(spline[spline.length-1].substring(20), linenosp[0]);
+                        Dueños.put(spsline[spsline.length-1].substring(20), slinenosp[0]);
                     }
                 }
 
@@ -112,9 +120,9 @@ public class directorio2{
                 siglinea=br.readLine();
 
             } 
-            //error última linea 
+
         }catch(Exception e){
-            e.printStackTrace();
+
         }finally{
 
             try{                    
@@ -136,7 +144,7 @@ public class directorio2{
             resultado=resultado + "/" + Nombres.get(valor);
             valor=Nombres.get(tmp);
         }
-       
+
         System.out.println(resultado);
     }
 
@@ -154,6 +162,15 @@ public class directorio2{
 
         if(Tamano.containsKey(entrada)){
             System.out.println("Tamaño del archivo: "+Tamano.get(entrada));
+        }else{
+            System.out.println("No se encontró ningún archivo con este nombre");
+        }
+    }
+
+    public static void buscarDueno(String entrada){
+
+        if(Tamano.containsKey(entrada)){
+            System.out.println("Dueño del archivo: "+Dueños.get(entrada));
         }else{
             System.out.println("No se encontró ningún archivo con este nombre");
         }
@@ -178,6 +195,13 @@ public class directorio2{
             String entrada2 = br2.readLine();
             leer("archivo.txt");
             busqueda(entrada2);
+        }
+
+        if (entrada.equalsIgnoreCase("Dueño")){
+            System.out.println("Por favor ingrese en nombre del archivo: ");
+            String entrada2 = br2.readLine();
+            leer("archivo.txt");
+            buscarDueno(entrada2);
         }
     }
 }
