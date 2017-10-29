@@ -126,7 +126,7 @@ public class Directorio{
     
     String resultado=Nombres.get(entrada);
     String valor=resultado;
-    while(!(valor.contains("Emulators-Roms"))){
+    while(valor!=null && !(valor.contains("Emulators-Roms"))){
     String tmp=valor;
     resultado=resultado + "/" + Nombres.get(valor);
     valor=Nombres.get(tmp);
