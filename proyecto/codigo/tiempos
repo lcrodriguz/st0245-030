@@ -1,3 +1,7 @@
+/**
+ * @author Laura Sánchez, Manuela Valencia, Alejandro Román, Luis Carlos Rodriguez
+ * @version 1
+ */
 import java.util.*;
 import java.io.*;
 import java.util.regex.Pattern;
@@ -11,32 +15,47 @@ public class dirctorio2{
     static File archivo=null;
     static FileReader fr=null;
     static BufferedReader br=null;
-    public static void limpiar(){
-    Nombres.clear();
-    Tamano.clear();
+    /**
+     * Este método se encarga de eliminar los valores que estén almacenados en los árboles Nombres y Tamano.
+     */public static void limpiar(){
+        Nombres.clear();
+        Tamano.clear();
     }
-    public static long tomarElTiempoParabusqueda(){
-    
-    long startTime = System.nanoTime();
-    busqueda("5300000000.hght.sstera");
-    long estimatedTime = System.nanoTime() - startTime;
-    return estimatedTime;
- }
-  public static long tomarElTiempoParaleer(){
-    
-    long startTime = System.currentTimeMillis();
-    leer("archivo.txt");
-    long estimatedTime = System.currentTimeMillis() - startTime;
-    return estimatedTime;
- }
-  public static long tomarElTiempoParaTamano(){
-    
-    long startTime = System.nanoTime();
-    buscarTamano("5300000000.hght.sstera");
-    long estimatedTime = System.nanoTime() - startTime;
-    return estimatedTime;
- }
-    public static void leer(String entrada){
+
+    /**
+     * @return Este método retorna el tiempo de ejecución del método busqueda
+     */public static long tomarElTiempoParabusqueda(){
+
+        long startTime = System.nanoTime();
+        busqueda("SCPH1001.BIN");
+        long estimatedTime = System.nanoTime() - startTime;
+        return estimatedTime;
+    }
+
+    /**
+     * @return Este método retorna el tiempo de ejecución del método leer
+     */public static long tomarElTiempoParaleer(){
+
+        long startTime = System.currentTimeMillis();
+        leer("archivo.txt");
+        long estimatedTime = System.currentTimeMillis() - startTime;
+        return estimatedTime;
+    }
+
+    /**
+     * @return Este método retorna el tiempo de ejecución del método buscarTamano
+     */public static long tomarElTiempoParaTamano(){
+
+        long startTime = System.nanoTime();
+        buscarTamano("5300000000.hght.sstera");
+        long estimatedTime = System.nanoTime() - startTime;
+        return estimatedTime;
+    }
+
+    /**
+     * @param Este método recibe un String con el nombre del archivo que será leido. Se encarga de leer cada línea y almacenarla en cada árbol.
+      
+     */public static void leer(String entrada){
         String info;
         String raiz;
         String linea;
@@ -92,7 +111,7 @@ public class dirctorio2{
                         if(Nombres.containsKey(spsline[spsline.length-1])&& !Nombres.get(spsline[spsline.length-1]).equals(spline[spline.length-1])){
                             Nombres.put(spsline[spsline.length-1] , spline[spline.length-1]+" ó " + Nombres.get(spsline[spsline.length-1]));
                         }else{
-                            Nombres.put(spsline[spsline.length-1].substring(20) , spline[spline.length-1].substring(20));
+                            Nombres.put(spsline[spsline.length-1].substring(20) , raiz);
                             Tamano.put(spline[spline.length-1].substring(20) , spline[spline.length-1].substring(13,17));
                             Tamano.put(spsline[spsline.length-1].substring(20) , spsline[spsline.length-1].substring(13,17));
                         }
@@ -107,7 +126,7 @@ public class dirctorio2{
                     if(Nombres.containsKey(spline[spline.length-1])&& !Nombres.get(spline[spline.length-1]).equals(raiz)){
                         Nombres.put(spline[spline.length-1],raiz + Nombres.get(spline[spline.length-1]));
                     }else{
-                        Nombres.put(spsline[spsline.length-1].substring(20) , raiz);
+                        Nombres.put(spsline[spsline.length-1].substring(20) , spline[spline.length-1].substring(20));
                         Tamano.put(spline[spline.length-1].substring(20) , spline[spline.length-1].substring(13,17));
                         Tamano.put(spsline[spsline.length-1].substring(20) , spsline[spsline.length-1].substring(13,17));
                     }
@@ -138,7 +157,7 @@ public class dirctorio2{
             } 
             //error última linea 
         }catch(Exception e){
-            
+
         }finally{
 
             try{                    
@@ -151,7 +170,9 @@ public class dirctorio2{
         }
     }
 
-    public static void busqueda(String entrada){
+    /**
+     * @param Este método recibe un String, y lo busca en el árbol Nombres, si está, imprime su ruta.
+     */public static void busqueda(String entrada){
 
         String resultado=Nombres.get(entrada);
         String valor=resultado;
@@ -160,11 +181,13 @@ public class dirctorio2{
             resultado=resultado + "/" + Nombres.get(valor);
             valor=Nombres.get(tmp);
         }
-       
+
         System.out.println(resultado);
     }
 
-    public static void buscar(String entrada){
+    /**
+     * @param Este método recibe un String, y lo busca en el árbol Nombres, si está, imprime la carpeta en la que está contenido.
+     */public static void buscar(String entrada){
         if(Nombres.containsKey(entrada)){
             System.out.println(Nombres.floorEntry(entrada));
         }else{
@@ -174,7 +197,9 @@ public class dirctorio2{
         //System.out.println(Nombres.tailMap(direccion));
     }
 
-    public static void buscarTamano(String entrada){
+    /**
+     * @param Este método recibe un String, y lo busca en el árbol Tamano, si está, imprime su tamaño.
+     */public static void buscarTamano(String entrada){
 
         if(Tamano.containsKey(entrada)){
             System.out.println("Tamaño del archivo: "+Tamano.get(entrada));
@@ -204,4 +229,4 @@ public class dirctorio2{
             busqueda(entrada2);
         }
     }
-}
+   }
