@@ -107,7 +107,7 @@ public class dirctorio2{
                     if(Nombres.containsKey(spline[spline.length-1])&& !Nombres.get(spline[spline.length-1]).equals(raiz)){
                         Nombres.put(spline[spline.length-1],raiz + Nombres.get(spline[spline.length-1]));
                     }else{
-                        Nombres.put(spsline[spsline.length-1].substring(20) , spline[spline.length-1].substring(20));
+                        Nombres.put(spsline[spsline.length-1].substring(20) , raiz);
                         Tamano.put(spline[spline.length-1].substring(20) , spline[spline.length-1].substring(13,17));
                         Tamano.put(spsline[spsline.length-1].substring(20) , spsline[spsline.length-1].substring(13,17));
                     }
