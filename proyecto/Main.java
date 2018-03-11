@@ -1,3 +1,8 @@
+/**elaborado por:
+@author: Luis Carlos
+@author: Santiago
+@author: Alejandro**/
+
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
