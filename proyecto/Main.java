@@ -1,5 +1,3 @@
-package com.company;
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
@@ -7,9 +5,10 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        String grafo[][]=llenar(grafo(ingresarNdeNodos()) , ingresarNdeNodos());
+        int Nnodos=ingresarNdeNodos();
+        String grafo[][]=llenar(grafo(Nnodos) , Nnodos);
         recorridoSimple(grafo);
-        System.out.print("Se necesitan "+ colores(grafo) +" en el semaforo");
+        System.out.print("Se necesitan "+ colores(grafo) +" color(es) en el semaforo");
     }
 
     public static String[][] grafo(int n){
@@ -50,9 +49,9 @@ public class Main {
                 String aux2 = cola.peek();
                 String aux3 = grafo[col][0];
                 if(aux3.equals(aux2)){
-                   grafo[col][i]="1";
-                   cola.poll();
-               }
+                    grafo[col][i]="1";
+                    cola.poll();
+                }
             }
         }
         for(int k=1;k<grafo.length;k++){
@@ -82,15 +81,16 @@ public class Main {
         for(int m=1;m<grafo.length;m++){
             vecaux2 = grafo[m];
             vecaux2[0]="0";
-            if(){
-                continue;
+            int comparacion=0;
+            for(int n=0;n<vecaux.length;n++){
+                if(vecaux[n]==vecaux2[n]){
+                    comparacion++;
+                }
+            }
+            if(comparacion!=vecaux.length){
+                colores++;
             }
         }
         return colores;
     }
-
-
-
-
-
 }
